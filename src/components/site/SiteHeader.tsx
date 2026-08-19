@@ -22,7 +22,7 @@ export function SiteHeader() {
             className="h-9 w-9 rounded-full object-cover ring-1 ring-primary/60 ring-glow"
           />
           <span className="font-display text-lg font-bold tracking-[0.2em] text-foreground">
-            ROOM<span className="text-primary text-glow">KULT</span>
+            ROOM<span className="text-toxic">KULT</span>
           </span>
         </Link>
 

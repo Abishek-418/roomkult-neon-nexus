@@ -34,9 +34,9 @@ function Shop() {
       <main>
         <section className="border-b border-border/60 px-4 py-14 sm:px-6">
           <div className="mx-auto max-w-7xl">
-            <p className="text-xs tracking-[0.4em] text-primary">/ THE ARCHIVE</p>
+            <p className="text-xs tracking-[0.4em] text-toxic">/ THE ARCHIVE</p>
             <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl">
-              SHOP THE <span className="text-primary text-glow">KULT</span>
+              SHOP THE <span className="text-toxic">KULT</span>
             </h1>
           </div>
         </section>
@@ -60,8 +60,8 @@ function Shop() {
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
-            {list.map((p) => (
-              <ProductCard key={p.id} product={p} />
+            {list.map((p, i) => (
+              <ProductCard key={p.id} product={p} index={i} />
             ))}
           </div>
         </div>
