@@ -7,7 +7,7 @@ export function ProductCard({ product, index }: { product: Product; index?: numb
         {index !== undefined ? String(index + 1).padStart(2, "0") : ""}
       </span>
       <div className="scanlines relative aspect-[3/4] overflow-hidden bg-background">
-        <span className="pointer-events-none absolute inset-0 z-10 opacity-0 mix-blend-screen transition-opacity duration-300 group-hover:opacity-100 [background:linear-gradient(120deg,transparent_40%,color-mix(in_oklab,var(--toxic)_18%,transparent)_50%,transparent_60%)]" />
+        <span className="pointer-events-none absolute inset-0 z-10 opacity-0 mix-blend-screen transition-opacity duration-300 group-hover:opacity-100 [background:linear-gradient(120deg,transparent_40%,color-mix(in_oklab,var(--bone)_16%,transparent)_50%,transparent_60%)]" />
         <img
           src={product.image}
           alt={product.name}
@@ -15,7 +15,7 @@ export function ProductCard({ product, index }: { product: Product; index?: numb
           className="h-full w-full object-cover opacity-90 transition-all duration-500 group-hover:scale-[1.07] group-hover:opacity-100 group-hover:contrast-125"
         />
         {product.tag && (
-          <span className="absolute left-0 top-3 z-10 bg-primary px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-primary-foreground">
+          <span className="absolute left-0 top-3 z-10 bg-toxic px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-background">
             {product.tag}
           </span>
         )}

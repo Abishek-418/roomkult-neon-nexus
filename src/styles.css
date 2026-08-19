@@ -192,11 +192,11 @@
     pointer-events: none;
     background: repeating-linear-gradient(
       to bottom,
-      color-mix(in oklab, var(--toxic) 5%, transparent) 0px,
+      color-mix(in oklab, var(--bone) 6%, transparent) 0px,
       transparent 1px,
       transparent 3px
     );
-    opacity: 0.35;
+    opacity: 0.3;
   }
 }
 
@@ -206,8 +206,8 @@
     text-shadow 0.15s ease;
   &:hover {
     text-shadow:
-      1.5px 0 color-mix(in oklab, var(--toxic) 80%, transparent),
-      -1.5px 0 color-mix(in oklab, oklch(0.7 0.2 200) 60%, transparent);
+      1.5px 0 color-mix(in oklab, var(--toxic) 70%, transparent),
+      -1.5px 0 color-mix(in oklab, var(--bone) 55%, transparent);
     transform: translateX(0.5px);
   }
 }
@@ -287,7 +287,7 @@
     animation: rk-glitch-a 5s infinite linear;
   }
   &::after {
-    color: oklch(0.72 0.19 210);
+    color: oklch(0.72 0.02 95);
     animation: rk-glitch-a 5s infinite linear reverse;
   }
 }
@@ -317,7 +317,7 @@
     background: linear-gradient(
       to bottom,
       transparent,
-      color-mix(in oklab, var(--toxic) 12%, transparent),
+      color-mix(in oklab, var(--bone) 10%, transparent),
       transparent
     );
     animation: rk-scan-sweep 7s linear infinite;
@@ -326,8 +326,8 @@
 
 @utility grid-lines {
   background-image:
-    linear-gradient(color-mix(in oklab, var(--toxic) 7%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--toxic) 7%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in oklab, var(--bone) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--bone) 5%, transparent) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
