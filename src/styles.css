@@ -357,13 +357,6 @@
   }
 }
 
-@utility grid-lines-legacy {
-  background-image:
-    linear-gradient(color-mix(in oklab, var(--bone) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--bone) 5%, transparent) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
