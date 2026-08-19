@@ -37,9 +37,9 @@ function Contact() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-        <p className="text-xs tracking-[0.4em] text-primary">/ TRANSMISSION</p>
+        <p className="text-xs tracking-[0.4em] text-toxic">/ TRANSMISSION</p>
         <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl">
-          SEND A <span className="text-primary text-glow">SIGNAL</span>
+          SEND A <span className="text-toxic">SIGNAL</span>
         </h1>
         <p className="mt-4 max-w-xl text-sm text-muted-foreground">
           Orders, custom prints, collabs, wholesale. We read everything. We answer within 24 hours.
@@ -51,26 +51,26 @@ function Contact() {
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="name" className="mb-2 block text-[11px] tracking-[0.25em] text-primary">
+              <label htmlFor="name" className="mb-2 block text-[11px] tracking-[0.25em] text-toxic">
                 NAME
               </label>
               <input id="name" name="name" required className={field} placeholder="your alias" />
             </div>
             <div>
-              <label htmlFor="email" className="mb-2 block text-[11px] tracking-[0.25em] text-primary">
+              <label htmlFor="email" className="mb-2 block text-[11px] tracking-[0.25em] text-toxic">
                 EMAIL
               </label>
               <input id="email" name="email" type="email" required className={field} placeholder="you@void.com" />
             </div>
           </div>
           <div>
-            <label htmlFor="subject" className="mb-2 block text-[11px] tracking-[0.25em] text-primary">
+            <label htmlFor="subject" className="mb-2 block text-[11px] tracking-[0.25em] text-toxic">
               SUBJECT
             </label>
             <input id="subject" name="subject" required className={field} placeholder="order / custom / collab" />
           </div>
           <div>
-            <label htmlFor="message" className="mb-2 block text-[11px] tracking-[0.25em] text-primary">
+            <label htmlFor="message" className="mb-2 block text-[11px] tracking-[0.25em] text-toxic">
               MESSAGE
             </label>
             <textarea id="message" name="message" required rows={6} className={field} placeholder="speak..." />
@@ -82,7 +82,7 @@ function Contact() {
             {sent ? "SIGNAL RECEIVED" : "TRANSMIT"}
           </button>
           {sent && (
-            <p className="text-center text-xs tracking-[0.2em] text-primary">
+            <p className="text-center text-xs tracking-[0.2em] text-toxic">
               WE'LL BE IN TOUCH. STAY WEIRD.
             </p>
           )}

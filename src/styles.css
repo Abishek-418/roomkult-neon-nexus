@@ -64,46 +64,49 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-toxic: var(--toxic);
+  --color-bone: var(--bone);
 }
 
 :root {
   --radius: 0.125rem;
-  --background: oklch(0.13 0.012 150);
-  --foreground: oklch(0.96 0.01 150);
-  --card: oklch(0.17 0.015 150);
-  --card-foreground: oklch(0.96 0.01 150);
-  --popover: oklch(0.15 0.014 150);
-  --popover-foreground: oklch(0.96 0.01 150);
-  --primary: oklch(0.86 0.27 143);
-  --primary-foreground: oklch(0.13 0.03 150);
-  --secondary: oklch(0.22 0.02 150);
-  --secondary-foreground: oklch(0.94 0.02 150);
-  --muted: oklch(0.2 0.015 150);
-  --muted-foreground: oklch(0.68 0.03 150);
-  --accent: oklch(0.24 0.05 150);
-  --accent-foreground: oklch(0.86 0.27 143);
+  --background: oklch(0.12 0.004 100);
+  --foreground: oklch(0.95 0.008 95);
+  --card: oklch(0.16 0.005 100);
+  --card-foreground: oklch(0.95 0.008 95);
+  --popover: oklch(0.14 0.005 100);
+  --popover-foreground: oklch(0.95 0.008 95);
+  --primary: oklch(0.93 0.014 95);
+  --primary-foreground: oklch(0.12 0.004 100);
+  --secondary: oklch(0.21 0.006 100);
+  --secondary-foreground: oklch(0.94 0.008 95);
+  --muted: oklch(0.19 0.005 100);
+  --muted-foreground: oklch(0.66 0.012 95);
+  --accent: oklch(0.22 0.01 100);
+  --accent-foreground: oklch(0.93 0.014 95);
   --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 150);
-  --border: oklch(0.28 0.035 150);
-  --input: oklch(0.24 0.03 150);
-  --ring: oklch(0.86 0.27 143);
-  --chart-1: oklch(0.86 0.27 143);
+  --destructive-foreground: oklch(0.98 0.005 95);
+  --border: oklch(0.27 0.006 100);
+  --input: oklch(0.22 0.006 100);
+  --ring: oklch(0.93 0.014 95);
+  --chart-1: oklch(0.8 0.19 145);
   --chart-2: oklch(0.7 0.2 150);
   --chart-3: oklch(0.55 0.15 155);
   --chart-4: oklch(0.4 0.1 160);
   --chart-5: oklch(0.3 0.06 150);
-  --sidebar: oklch(0.15 0.014 150);
-  --sidebar-foreground: oklch(0.96 0.01 150);
-  --sidebar-primary: oklch(0.86 0.27 143);
-  --sidebar-primary-foreground: oklch(0.13 0.03 150);
-  --sidebar-accent: oklch(0.22 0.02 150);
-  --sidebar-accent-foreground: oklch(0.86 0.27 143);
-  --sidebar-border: oklch(0.28 0.035 150);
-  --sidebar-ring: oklch(0.86 0.27 143);
+  --sidebar: oklch(0.14 0.005 100);
+  --sidebar-foreground: oklch(0.95 0.008 95);
+  --sidebar-primary: oklch(0.93 0.014 95);
+  --sidebar-primary-foreground: oklch(0.12 0.004 100);
+  --sidebar-accent: oklch(0.21 0.006 100);
+  --sidebar-accent-foreground: oklch(0.93 0.014 95);
+  --sidebar-border: oklch(0.27 0.006 100);
+  --sidebar-ring: oklch(0.93 0.014 95);
 
-  --toxic: oklch(0.86 0.27 143);
-  --glow-soft: 0 0 24px color-mix(in oklab, var(--toxic) 25%, transparent);
-  --glow-hard: 0 0 44px color-mix(in oklab, var(--toxic) 45%, transparent);
+  --bone: oklch(0.93 0.014 95);
+  --toxic: oklch(0.82 0.21 146);
+  --glow-soft: 0 0 24px color-mix(in oklab, var(--bone) 16%, transparent);
+  --glow-hard: 0 0 40px color-mix(in oklab, var(--bone) 26%, transparent);
   --gradient-fade: linear-gradient(
     180deg,
     transparent 0%,
@@ -189,11 +192,11 @@
     pointer-events: none;
     background: repeating-linear-gradient(
       to bottom,
-      color-mix(in oklab, var(--toxic) 5%, transparent) 0px,
+      color-mix(in oklab, var(--bone) 6%, transparent) 0px,
       transparent 1px,
       transparent 3px
     );
-    opacity: 0.35;
+    opacity: 0.3;
   }
 }
 
@@ -203,8 +206,8 @@
     text-shadow 0.15s ease;
   &:hover {
     text-shadow:
-      1.5px 0 color-mix(in oklab, var(--toxic) 80%, transparent),
-      -1.5px 0 color-mix(in oklab, oklch(0.7 0.2 200) 60%, transparent);
+      1.5px 0 color-mix(in oklab, var(--toxic) 70%, transparent),
+      -1.5px 0 color-mix(in oklab, var(--bone) 55%, transparent);
     transform: translateX(0.5px);
   }
 }
@@ -284,7 +287,7 @@
     animation: rk-glitch-a 5s infinite linear;
   }
   &::after {
-    color: oklch(0.72 0.19 210);
+    color: oklch(0.72 0.02 95);
     animation: rk-glitch-a 5s infinite linear reverse;
   }
 }
@@ -314,7 +317,7 @@
     background: linear-gradient(
       to bottom,
       transparent,
-      color-mix(in oklab, var(--toxic) 12%, transparent),
+      color-mix(in oklab, var(--bone) 10%, transparent),
       transparent
     );
     animation: rk-scan-sweep 7s linear infinite;
@@ -323,8 +326,8 @@
 
 @utility grid-lines {
   background-image:
-    linear-gradient(color-mix(in oklab, var(--toxic) 7%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--toxic) 7%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in oklab, var(--bone) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--bone) 5%, transparent) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 

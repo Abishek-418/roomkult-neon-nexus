@@ -57,7 +57,7 @@ function Index() {
               alt="ROOMKULT logo"
               className="float-slow mb-7 h-16 w-16 rounded-full object-cover ring-1 ring-primary/60 ring-glow"
             />
-            <p className="flicker text-xs tracking-[0.5em] text-primary">
+            <p className="flicker text-xs tracking-[0.5em] text-toxic">
               EST. UNDERGROUND — NIGHT VISION ON
             </p>
             <h1 className="mt-5 font-display text-5xl font-bold leading-[0.92] tracking-tight sm:text-7xl lg:text-[7.5rem]">
@@ -97,7 +97,7 @@ function Index() {
                 ["01", "DROP LIVE"],
               ].map(([v, k]) => (
                 <div key={k} className="bg-background/80 px-4 py-4 backdrop-blur-sm">
-                  <dt className="font-display text-xl font-bold text-primary sm:text-2xl">{v}</dt>
+                  <dt className="font-display text-xl font-bold text-foreground sm:text-2xl">{v}</dt>
                   <dd className="mt-1 text-[10px] tracking-[0.25em] text-muted-foreground">{k}</dd>
                 </div>
               ))}
@@ -107,7 +107,7 @@ function Index() {
 
         {/* MARQUEE */}
         <Marquee
-          className="border-y border-border/60 bg-primary/10 py-3 text-[11px] font-bold tracking-[0.45em] whitespace-nowrap text-primary"
+          className="border-y border-border/60 bg-card/60 py-3 text-[11px] font-bold tracking-[0.45em] whitespace-nowrap text-foreground"
           items={[
             "FREE SHIPPING OVER ₹999",
             "NEW DROPS EVERY FRIDAY",
@@ -116,47 +116,60 @@ function Index() {
           ]}
         />
 
-        {/* CATEGORIES */}
+        {/* CATEGORIES — editorial index board */}
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-          <div className="flex items-end justify-between gap-6">
+          <div className="flex items-end justify-between gap-6 border-b border-border/60 pb-6">
             <div>
-              <p className="text-xs tracking-[0.4em] text-primary">/ CATEGORIES</p>
+              <p className="text-xs tracking-[0.4em] text-toxic">/ INDEX 01—05</p>
               <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">PICK YOUR POISON</h2>
             </div>
-            <Link to="/shop" className="hidden text-xs tracking-[0.25em] text-muted-foreground hover:text-primary sm:block">
+            <Link to="/shop" className="hidden text-xs tracking-[0.25em] text-muted-foreground hover:text-foreground sm:block">
               VIEW ALL →
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c, i) => (
-              <Link
-                key={c.id}
-                to="/shop"
-                className={`group relative overflow-hidden border border-border/70 transition-all duration-300 hover:border-primary/70 hover:shadow-[var(--glow-soft)] ${
-                  i === 0 ? "lg:col-span-2" : ""
-                }`}
-              >
-                <img
-                  src={c.image}
-                  alt={`${c.label} posters`}
-                  loading="lazy"
-                  className="h-64 w-full object-cover opacity-55 transition-all duration-500 group-hover:scale-105 group-hover:opacity-85 group-hover:contrast-125"
-                />
-                <span className="absolute right-4 top-3 font-display text-xs tracking-[0.3em] text-primary/70">
-                  0{i + 1}
-                </span>
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background via-background/40 to-transparent p-6">
-                  <h3 className="glitch-hover font-display text-2xl font-bold tracking-wide text-foreground group-hover:text-primary">
-                    {c.label.toUpperCase()}
-                  </h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{c.blurb}</p>
-                  <span className="mt-3 inline-block max-w-fit border-b border-primary/0 text-[10px] tracking-[0.3em] text-primary opacity-0 transition-all duration-300 group-hover:border-primary group-hover:opacity-100">
-                    ENTER →
+          <div className="mt-8 grid auto-rows-[170px] grid-cols-2 gap-3 lg:grid-cols-4">
+            {categories.map((c, i) => {
+              const span = [
+                "col-span-2 row-span-2",
+                "col-span-2 row-span-1 lg:col-span-2",
+                "col-span-1 row-span-1 lg:row-span-2",
+                "col-span-1 row-span-1",
+                "col-span-2 row-span-1 lg:col-span-1",
+              ][i];
+              return (
+                <Link
+                  key={c.id}
+                  to="/shop"
+                  className={`group relative overflow-hidden border border-border/70 bg-card transition-all duration-300 hover:border-foreground/60 ${span}`}
+                >
+                  <img
+                    src={c.image}
+                    alt={`${c.label} posters`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover opacity-45 grayscale transition-all duration-700 group-hover:scale-[1.06] group-hover:opacity-80 group-hover:grayscale-0"
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" aria-hidden />
+                  <span className="absolute left-3 top-3 font-display text-[10px] tracking-[0.35em] text-muted-foreground">
+                    0{i + 1}
                   </span>
-                </div>
-              </Link>
-            ))}
+                  <span
+                    className="absolute right-2 top-4 text-[9px] tracking-[0.4em] text-toxic opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ writingMode: "vertical-rl" }}
+                  >
+                    ENTER
+                  </span>
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                    <h3 className="glitch-hover font-display text-xl font-bold leading-none tracking-tight sm:text-3xl">
+                      {c.label.toUpperCase()}
+                    </h3>
+                    <p className="mt-1.5 text-[11px] text-muted-foreground opacity-70 transition-opacity group-hover:opacity-100">
+                      {c.blurb}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
@@ -172,7 +185,7 @@ function Index() {
           <div className="absolute inset-0 bg-background/70" aria-hidden />
           <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-4 py-16 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="flicker text-xs tracking-[0.4em] text-primary">/ DROP 02 INCOMING</p>
+              <p className="flicker text-xs tracking-[0.4em] text-toxic">/ DROP 02 INCOMING</p>
               <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">
                 THE NEXT RITUAL BEGINS
               </h2>
@@ -187,9 +200,9 @@ function Index() {
         {/* FEATURED */}
         <section className="border-t border-border/60 bg-card/30">
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-            <p className="text-xs tracking-[0.4em] text-primary">/ DROP 01</p>
+            <p className="text-xs tracking-[0.4em] text-toxic">/ DROP 01</p>
             <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">
-              FRESH OFF THE <span className="text-primary text-glow">PRESS</span>
+              FRESH OFF THE <span className="text-toxic">PRESS</span>
             </h2>
             <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
               {featured.map((p, i) => (
@@ -219,10 +232,10 @@ function Index() {
               />
             </div>
             <div>
-              <p className="text-xs tracking-[0.4em] text-primary">/ THE MANIFESTO</p>
+              <p className="text-xs tracking-[0.4em] text-toxic">/ THE MANIFESTO</p>
               <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-5xl">
                 BEIGE IS A<br />
-                <span className="text-primary text-glow">PERSONALITY DISORDER</span>
+                <span className="text-toxic">PERSONALITY DISORDER</span>
               </h2>
               <ul className="mt-8 space-y-4">
                 {[
@@ -231,7 +244,7 @@ function Index() {
                   ["03", "NO ALGORITHM ART", "Every piece is picked by humans who don't sleep."],
                 ].map(([n, t, d]) => (
                   <li key={n} className="group flex gap-5 border-b border-border/60 pb-4">
-                    <span className="font-display text-sm text-primary/70">{n}</span>
+                    <span className="font-display text-sm text-toxic/80">{n}</span>
                     <div>
                       <h3 className="font-display text-base font-semibold tracking-wide transition-colors group-hover:text-primary">
                         {t}
@@ -248,7 +261,7 @@ function Index() {
         {/* CULT LOG / TESTIMONIALS */}
         <section className="border-t border-border/60 bg-card/20">
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-            <p className="text-xs tracking-[0.4em] text-primary">/ CULT LOG</p>
+            <p className="text-xs tracking-[0.4em] text-toxic">/ CULT LOG</p>
             <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">WHAT THEY WHISPER</h2>
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {[
@@ -260,7 +273,7 @@ function Index() {
                   key={h}
                   className="border border-border/70 bg-background/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--glow-soft)]"
                 >
-                  <div className="text-xs tracking-[0.3em] text-primary">★★★★★</div>
+                  <div className="text-xs tracking-[0.3em] text-toxic">★★★★★</div>
                   <blockquote className="mt-4 text-sm leading-relaxed text-foreground">
                     “{q}”
                   </blockquote>
@@ -276,9 +289,9 @@ function Index() {
         {/* WALL OF THE KULT */}
         <section className="border-t border-border/60 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <p className="text-xs tracking-[0.4em] text-primary">/ WALL OF THE KULT</p>
+            <p className="text-xs tracking-[0.4em] text-toxic">/ WALL OF THE KULT</p>
             <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">
-              TAGGED <span className="text-primary text-glow">#ROOMKULT</span>
+              TAGGED <span className="text-toxic">#ROOMKULT</span>
             </h2>
           </div>
           <div className="mt-10 space-y-3">
@@ -316,7 +329,7 @@ function Index() {
           <div className="absolute inset-0 bg-background/75" aria-hidden />
           <div className="relative mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
             <h2 className="font-display text-3xl font-bold sm:text-5xl">
-              GET THE <span className="text-primary text-glow">SIGNAL</span> FIRST
+              GET THE <span className="text-toxic">SIGNAL</span> FIRST
             </h2>
             <p className="mx-auto mt-4 max-w-md text-sm text-muted-foreground">
               Early access to every drop, before the algorithm finds out.

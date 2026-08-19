@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <img src={logo.url} alt="ROOMKULT" className="h-10 w-10 rounded-full object-cover" />
             <span className="font-display text-xl font-bold tracking-[0.2em]">
-              ROOM<span className="text-primary">KULT</span>
+              ROOM<span className="text-toxic">KULT</span>
             </span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
@@ -19,7 +19,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-xs font-semibold tracking-[0.3em] text-primary">NAVIGATE</h3>
+          <h3 className="text-xs font-semibold tracking-[0.3em] text-toxic">NAVIGATE</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/" className="hover:text-primary">Home</Link></li>
             <li><Link to="/shop" className="hover:text-primary">Shop</Link></li>
@@ -28,7 +28,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-xs font-semibold tracking-[0.3em] text-primary">JOIN THE KULT</h3>
+          <h3 className="text-xs font-semibold tracking-[0.3em] text-toxic">JOIN THE KULT</h3>
           <div className="mt-4 flex gap-3">
             {[Instagram, Youtube, Mail].map((Icon, i) => (
               <span
