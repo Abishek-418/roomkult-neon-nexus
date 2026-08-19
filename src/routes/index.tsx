@@ -2,8 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
+import { Marquee } from "@/components/site/Marquee";
+import { DropCountdown } from "@/components/site/DropCountdown";
 import { categories, products } from "@/data/products";
 import heroRoom from "@/assets/hero-room.jpg";
+import logo from "@/assets/roomkult-logo.jpg.asset.json";
+import posterMore1 from "@/assets/poster-more-1.jpg";
+import posterMore2 from "@/assets/poster-more-2.jpg";
+import decorMirror from "@/assets/decor-mirror.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
