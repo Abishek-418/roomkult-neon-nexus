@@ -42,7 +42,7 @@ function Index() {
         <section className="scanlines grain sweep relative overflow-hidden">
           <img
             src={heroRoom}
-            alt="Dark room lit by neon green light with alternative posters on the wall"
+            alt="Deserted gas station glowing with eerie neon green light at night"
             className="absolute inset-0 h-full w-full object-cover opacity-30"
           />
           <div className="grid-lines absolute inset-0 opacity-70" aria-hidden />
@@ -213,7 +213,7 @@ function Index() {
             <div className="scanlines relative overflow-hidden border border-border/70">
               <img
                 src={decorMirror}
-                alt="Wavy neon-lit mirror in a dark room"
+                alt="Surreal pattern of glowing green eyes"
                 loading="lazy"
                 className="h-[420px] w-full object-cover opacity-80"
               />
