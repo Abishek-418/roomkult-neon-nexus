@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Marquee } from "@/components/site/Marquee";
 import { DropCountdown } from "@/components/site/DropCountdown";
+import { GlowCursor } from "@/components/site/GlowCursor";
 import { categories, products } from "@/data/products";
 import heroRoom from "@/assets/art/gas-station.jpg";
 import logo from "@/assets/roomkult-logo.jpg.asset.json";
@@ -34,7 +35,8 @@ function Index() {
   const featured = products.slice(0, 8);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-grain min-h-screen bg-background">
+      <GlowCursor />
       <SiteHeader />
 
       <main>
@@ -121,7 +123,7 @@ function Index() {
           <div className="flex items-end justify-between gap-6 border-b border-border/60 pb-6">
             <div>
               <p className="text-xs tracking-[0.4em] text-toxic">/ INDEX 01—05</p>
-              <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">PICK YOUR POISON</h2>
+              <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">CHOOSE YOUR AFFLICTION</h2>
             </div>
             <Link to="/shop" className="hidden text-xs tracking-[0.25em] text-muted-foreground hover:text-foreground sm:block">
               VIEW ALL →
@@ -202,7 +204,7 @@ function Index() {
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
             <p className="text-xs tracking-[0.4em] text-toxic">/ DROP 01</p>
             <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">
-              FRESH OFF THE <span className="text-toxic">PRESS</span>
+              STILL WET WITH <span className="text-toxic">INK</span>
             </h2>
             <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
               {featured.map((p, i) => (
