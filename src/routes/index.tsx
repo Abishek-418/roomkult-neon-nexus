@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Marquee } from "@/components/site/Marquee";
 import { DropCountdown } from "@/components/site/DropCountdown";
+import { LogoIntro } from "@/components/site/LogoIntro";
 
 import { categories, products } from "@/data/products";
 import heroRoom from "@/assets/art/gas-station.jpg";
@@ -36,6 +37,7 @@ function Index() {
 
   return (
     <div className="page-grain min-h-screen bg-background">
+      <LogoIntro />
       <SiteHeader />
 
       <main>
