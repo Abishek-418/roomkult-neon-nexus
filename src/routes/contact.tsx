@@ -45,22 +45,6 @@ function Contact() {
           Orders, custom prints, collabs, wholesale. We read everything. We answer within 24 hours.
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 border border-border/70 bg-card px-6 py-4 text-xs tracking-[0.2em] text-muted-foreground">
-          <span className="flex items-center gap-2">
-            <span className="text-toxic">CALL</span>
-            <a href="tel:+918138897778" className="font-medium text-foreground transition-colors hover:text-toxic">
-              +91 81388 97778
-            </a>
-          </span>
-          <span className="hidden h-4 w-px bg-border sm:block" />
-          <span className="flex items-center gap-2">
-            <span className="text-toxic">WRITE</span>
-            <a href="mailto:roomkult@gmail.com" className="font-medium text-foreground transition-colors hover:text-toxic">
-              roomkult@gmail.com
-            </a>
-          </span>
-        </div>
-
         <form
           onSubmit={onSubmit}
           className="mt-10 space-y-5 border border-border/70 bg-card p-6 sm:p-8"
