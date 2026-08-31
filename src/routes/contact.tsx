@@ -87,6 +87,17 @@ function Contact() {
             </p>
           )}
         </form>
+
+        <p className="mt-14 text-center text-[11px] tracking-[0.25em] text-muted-foreground/50">
+          OR —{" "}
+          <a href="tel:+918138897778" className="transition-colors hover:text-muted-foreground">
+            CALL
+          </a>{" "}
+          /{" "}
+          <a href="mailto:roomkult@gmail.com" className="transition-colors hover:text-muted-foreground">
+            WRITE
+          </a>
+        </p>
       </main>
       <SiteFooter />
     </div>
