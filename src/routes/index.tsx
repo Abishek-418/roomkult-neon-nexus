@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Marquee } from "@/components/site/Marquee";
 import { DropCountdown } from "@/components/site/DropCountdown";
-import { GlowCursor } from "@/components/site/GlowCursor";
+
 import { categories, products } from "@/data/products";
 import heroRoom from "@/assets/art/gas-station.jpg";
 import logo from "@/assets/roomkult-logo.jpg.asset.json";
@@ -36,7 +36,6 @@ function Index() {
 
   return (
     <div className="page-grain min-h-screen bg-background">
-      <GlowCursor />
       <SiteHeader />
 
       <main>
@@ -189,7 +188,7 @@ function Index() {
             <div>
               <p className="flicker text-xs tracking-[0.4em] text-toxic">/ DROP 02 INCOMING</p>
               <h2 className="mt-3 font-display text-3xl font-bold sm:text-5xl">
-                THE NEXT RITUAL BEGINS
+                THE NEXT TRANSMISSION LANDS
               </h2>
               <p className="mt-3 max-w-md text-sm text-muted-foreground">
                 Friday, 8PM IST. Limited runs, numbered prints, gone before midnight.
