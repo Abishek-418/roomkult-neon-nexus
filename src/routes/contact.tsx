@@ -39,11 +39,27 @@ function Contact() {
       <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
         <p className="text-xs tracking-[0.4em] text-toxic">/ TRANSMISSION</p>
         <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-6xl">
-          SEND A <span className="text-toxic">SIGNAL</span>
+          TALK TO THE <span className="text-toxic">KULT</span>
         </h1>
         <p className="mt-4 max-w-xl text-sm text-muted-foreground">
           Orders, custom prints, collabs, wholesale. We read everything. We answer within 24 hours.
         </p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 border border-border/70 bg-card px-6 py-4 text-xs tracking-[0.2em] text-muted-foreground">
+          <span className="flex items-center gap-2">
+            <span className="text-toxic">CALL</span>
+            <a href="tel:+918138897778" className="font-medium text-foreground transition-colors hover:text-toxic">
+              +91 81388 97778
+            </a>
+          </span>
+          <span className="hidden h-4 w-px bg-border sm:block" />
+          <span className="flex items-center gap-2">
+            <span className="text-toxic">WRITE</span>
+            <a href="mailto:roomkult@gmail.com" className="font-medium text-foreground transition-colors hover:text-toxic">
+              roomkult@gmail.com
+            </a>
+          </span>
+        </div>
 
         <form
           onSubmit={onSubmit}
