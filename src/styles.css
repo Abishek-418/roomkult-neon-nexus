@@ -331,19 +331,6 @@
   background-size: 56px 56px;
 }
 
-/* soft blurred halo that follows the pointer */
-@utility glow-cursor {
-  mix-blend-mode: screen;
-  background: radial-gradient(
-    circle,
-    transparent 34%,
-    color-mix(in oklab, var(--bone) 34%, transparent) 50%,
-    color-mix(in oklab, var(--bone) 10%, transparent) 66%,
-    transparent 76%
-  );
-  filter: blur(6px);
-}
-
 /* page-wide faint film grain */
 @utility page-grain {
   &::before {
