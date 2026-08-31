@@ -10,12 +10,12 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Questions about a poster drop, custom decor or an order? Send ROOMKULT a signal and we'll answer within 24 hours.",
+          "Questions about a poster drop, custom decor or an order? Talk to the Kult — ROOMKULT answers within 24 hours.",
       },
-      { property: "og:title", content: "Contact ROOMKULT" },
+      { property: "og:title", content: "Talk To The Kult | ROOMKULT" },
       {
         property: "og:description",
-        content: "Send a signal to ROOMKULT — orders, custom prints, collabs and wholesale.",
+        content: "Talk to the Kult — ROOMKULT orders, custom prints, collabs and wholesale.",
       },
     ],
   }),
