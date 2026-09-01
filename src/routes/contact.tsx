@@ -101,11 +101,17 @@ function Contact() {
           </div>
           <button
             type="submit"
-            className="w-full border border-primary bg-primary py-3 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)]"
+            disabled={sending}
+            className="w-full border border-primary bg-primary py-3 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)] disabled:opacity-60"
           >
-            {sent ? "SIGNAL RECEIVED" : "TRANSMIT"}
+            {sending ? "TRANSMITTING..." : sent ? "SIGNAL RECEIVED" : "TRANSMIT"}
           </button>
-          {sent && (
+          {error && (
+            <p role="alert" className="text-center text-xs tracking-[0.2em] text-destructive">
+              {error}
+            </p>
+          )}
+          {sent && !error && (
             <p className="text-center text-xs tracking-[0.2em] text-toxic">
               WE'LL BE IN TOUCH. STAY WEIRD.
             </p>
