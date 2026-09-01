@@ -16,6 +16,28 @@ import decorMirror from "@/assets/art/eyes-pattern.jpg";
 
 export function HomeContent() {
   const featured = products.slice(0, 8);
+  const [signalEmail, setSignalEmail] = useState("");
+  const [signalState, setSignalState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [signalMessage, setSignalMessage] = useState("");
+
+  async function handleSignal(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSignalState("sending");
+    setSignalMessage("");
+    const { error } = await supabase
+      .from("newsletter_subscribers")
+      .insert({ email: signalEmail.trim().toLowerCase() });
+
+    if (error && error.code !== "23505") {
+      setSignalState("error");
+      setSignalMessage("SIGNAL LOST — TRY AGAIN.");
+      return;
+    }
+    setSignalState("done");
+    setSignalEmail("");
+    setSignalMessage("YOU'RE ON THE FREQUENCY.");
+  }
+
 
   return (
     <div className="page-grain min-h-screen bg-background">
