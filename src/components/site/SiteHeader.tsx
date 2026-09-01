@@ -33,7 +33,7 @@ export function SiteHeader() {
               to={n.to}
               className="glitch-hover text-xs font-semibold tracking-[0.25em] text-muted-foreground transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: n.to === "/home" }}
             >
               {n.label}
             </Link>
@@ -65,7 +65,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="block py-3 text-sm font-semibold tracking-[0.25em] text-muted-foreground hover:text-primary"
               activeProps={{ className: "text-primary" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: n.to === "/home" }}
             >
               {n.label}
             </Link>
