@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,11 +25,34 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setSending(true);
+    setError("");
+
+    const { data: userData } = await supabase.auth.getUser();
+    const { error: insertError } = await supabase.from("contact_messages").insert({
+      user_id: userData.user?.id ?? null,
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      subject: String(data.get("subject") ?? ""),
+      message: String(data.get("message") ?? ""),
+    });
+
+    setSending(false);
+    if (insertError) {
+      setError("TRANSMISSION FAILED — TRY AGAIN.");
+      return;
+    }
+    form.reset();
     setSent(true);
   }
+
 
   const field =
     "w-full border border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:shadow-[var(--glow-soft)]";
@@ -77,11 +101,17 @@ function Contact() {
           </div>
           <button
             type="submit"
-            className="w-full border border-primary bg-primary py-3 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)]"
+            disabled={sending}
+            className="w-full border border-primary bg-primary py-3 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)] disabled:opacity-60"
           >
-            {sent ? "SIGNAL RECEIVED" : "TRANSMIT"}
+            {sending ? "TRANSMITTING..." : sent ? "SIGNAL RECEIVED" : "TRANSMIT"}
           </button>
-          {sent && (
+          {error && (
+            <p role="alert" className="text-center text-xs tracking-[0.2em] text-destructive">
+              {error}
+            </p>
+          )}
+          {sent && !error && (
             <p className="text-center text-xs tracking-[0.2em] text-toxic">
               WE'LL BE IN TOUCH. STAY WEIRD.
             </p>

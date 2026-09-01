@@ -1,4 +1,6 @@
+import { useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
+import { supabase } from "@/integrations/supabase/client";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ProductCard } from "@/components/site/ProductCard";
@@ -14,6 +16,28 @@ import decorMirror from "@/assets/art/eyes-pattern.jpg";
 
 export function HomeContent() {
   const featured = products.slice(0, 8);
+  const [signalEmail, setSignalEmail] = useState("");
+  const [signalState, setSignalState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [signalMessage, setSignalMessage] = useState("");
+
+  async function handleSignal(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSignalState("sending");
+    setSignalMessage("");
+    const { error } = await supabase
+      .from("newsletter_subscribers")
+      .insert({ email: signalEmail.trim().toLowerCase() });
+
+    if (error && error.code !== "23505") {
+      setSignalState("error");
+      setSignalMessage("SIGNAL LOST — TRY AGAIN.");
+      return;
+    }
+    setSignalState("done");
+    setSignalEmail("");
+    setSignalMessage("YOU'RE ON THE FREQUENCY.");
+  }
+
 
   return (
     <div className="page-grain min-h-screen bg-background">
@@ -319,22 +343,35 @@ export function HomeContent() {
             </p>
             <form
               className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSignal}
             >
               <input
                 type="email"
                 required
+                value={signalEmail}
+                onChange={(e) => setSignalEmail(e.target.value)}
                 placeholder="you@thevoid.com"
                 aria-label="Email address"
                 className="w-full border border-border bg-background/80 px-4 py-3.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
               />
               <button
                 type="submit"
-                className="shrink-0 border border-primary bg-primary px-7 py-3.5 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)]"
+                disabled={signalState === "sending"}
+                className="shrink-0 border border-primary bg-primary px-7 py-3.5 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)] disabled:opacity-60"
               >
-                JOIN
+                {signalState === "sending" ? "..." : "JOIN"}
               </button>
             </form>
+            {signalMessage && (
+              <p
+                role="status"
+                className={`mt-4 text-[11px] tracking-[0.25em] ${
+                  signalState === "error" ? "text-destructive" : "text-toxic"
+                }`}
+              >
+                {signalMessage}
+              </p>
+            )}
           </div>
         </section>
       </main>
