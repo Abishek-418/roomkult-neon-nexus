@@ -113,6 +113,7 @@
     color-mix(in oklab, var(--background) 85%, transparent) 65%,
     var(--background) 100%
   );
+  --gradient-access: radial-gradient(circle at 72% 45%, transparent 0%, color-mix(in oklab, var(--background) 38%, transparent) 35%, var(--background) 88%);
 }
 
 .dark {
@@ -377,6 +378,10 @@
   0% { clip-path: inset(0 0 0 0); opacity: 1; }
   100% { clip-path: inset(50% 0 50% 0); opacity: 0; }
 }
+@keyframes rk-access-reveal {
+  from { opacity: 0; transform: translateY(22px); filter: blur(7px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
 
 .intro-mark {
   animation: rk-intro-mark 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -399,6 +404,18 @@
 }
 .intro-shutter {
   animation: rk-intro-shutter 0.7s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+
+.access-vignette {
+  background: var(--gradient-access);
+}
+
+.access-reveal {
+  animation: rk-access-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.access-reveal-delayed {
+  animation: rk-access-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
