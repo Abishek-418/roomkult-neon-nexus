@@ -319,22 +319,35 @@ export function HomeContent() {
             </p>
             <form
               className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSignal}
             >
               <input
                 type="email"
                 required
+                value={signalEmail}
+                onChange={(e) => setSignalEmail(e.target.value)}
                 placeholder="you@thevoid.com"
                 aria-label="Email address"
                 className="w-full border border-border bg-background/80 px-4 py-3.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
               />
               <button
                 type="submit"
-                className="shrink-0 border border-primary bg-primary px-7 py-3.5 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)]"
+                disabled={signalState === "sending"}
+                className="shrink-0 border border-primary bg-primary px-7 py-3.5 text-xs font-bold tracking-[0.3em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary hover:shadow-[var(--glow-hard)] disabled:opacity-60"
               >
-                JOIN
+                {signalState === "sending" ? "..." : "JOIN"}
               </button>
             </form>
+            {signalMessage && (
+              <p
+                role="status"
+                className={`mt-4 text-[11px] tracking-[0.25em] ${
+                  signalState === "error" ? "text-destructive" : "text-toxic"
+                }`}
+              >
+                {signalMessage}
+              </p>
+            )}
           </div>
         </section>
       </main>
