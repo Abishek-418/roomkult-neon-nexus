@@ -24,11 +24,34 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setSending(true);
+    setError("");
+
+    const { data: userData } = await supabase.auth.getUser();
+    const { error: insertError } = await supabase.from("contact_messages").insert({
+      user_id: userData.user?.id ?? null,
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      subject: String(data.get("subject") ?? ""),
+      message: String(data.get("message") ?? ""),
+    });
+
+    setSending(false);
+    if (insertError) {
+      setError("TRANSMISSION FAILED — TRY AGAIN.");
+      return;
+    }
+    form.reset();
     setSent(true);
   }
+
 
   const field =
     "w-full border border-border bg-input/40 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:shadow-[var(--glow-soft)]";
