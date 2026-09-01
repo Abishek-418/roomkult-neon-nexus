@@ -4,7 +4,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import logo from "@/assets/roomkult-logo.jpg.asset.json";
 
 const nav = [
-  { to: "/", label: "HOME" },
+  { to: "/home", label: "HOME" },
   { to: "/shop", label: "SHOP" },
   { to: "/contact", label: "CONTACT" },
 ] as const;
@@ -15,7 +15,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link to="/home" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img
             src={logo.url}
             alt="ROOMKULT logo"
@@ -33,7 +33,7 @@ export function SiteHeader() {
               to={n.to}
               className="glitch-hover text-xs font-semibold tracking-[0.25em] text-muted-foreground transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: n.to === "/home" }}
             >
               {n.label}
             </Link>
@@ -65,7 +65,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="block py-3 text-sm font-semibold tracking-[0.25em] text-muted-foreground hover:text-primary"
               activeProps={{ className: "text-primary" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: n.to === "/home" }}
             >
               {n.label}
             </Link>

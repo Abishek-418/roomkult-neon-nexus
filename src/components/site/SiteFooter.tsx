@@ -21,7 +21,7 @@ export function SiteFooter() {
         <div>
           <h3 className="text-xs font-semibold tracking-[0.3em] text-toxic">NAVIGATE</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/" className="hover:text-primary">Home</Link></li>
+            <li><Link to="/home" className="hover:text-primary">Home</Link></li>
             <li><Link to="/shop" className="hover:text-primary">Shop</Link></li>
             <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
